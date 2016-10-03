@@ -26,7 +26,7 @@ public class MainWindow extends JFrame{
     private JMenuBar      menu;
     private JMenu         file,edit,exercises,help;
     private JMenuItem     open,quit;
-    private JMenuItem     Threeinline,mixer;
+    private JMenuItem     Threeinline,mixer,Simplegraph;
     private JDesktopPane  mdi;
     private int           index;
 
@@ -53,7 +53,7 @@ public class MainWindow extends JFrame{
         Threeinline =new JMenuItem("Three In Line");
         mdi  = new JDesktopPane();
         mixer = new JMenuItem("ColorMixer");
-        
+        Simplegraph = new JMenuItem("Graph");
         
         setJMenuBar(menu);
         menu.add(file);
@@ -67,6 +67,7 @@ public class MainWindow extends JFrame{
         
         exercises.add(Threeinline);
         exercises.add(mixer);
+        exercises.add(Simplegraph);
         
         add(mdi); // por defecto se coloca en el borderLayout en el centro... :O   
     }
@@ -109,8 +110,13 @@ public class MainWindow extends JFrame{
                 mdi.add(new ColorMixer() );
             }
         });
-        
-        
+        //-------------------------------------------------------
+        Simplegraph.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mdi.add(new SimpleGraph());
+            }
+        });        
         
         
         
